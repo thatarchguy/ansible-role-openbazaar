@@ -5,4 +5,13 @@
 USERNAME = {{ openbazaar_username }}
 PASSWORD = {{ openbazaar_password }}
 
-[SEEDS]
+
+{% if openbazaar_mainnet_seeds %}
+[MAINNET_SEEDS]
+
+{% for k,v in item.seed.iteritems() %}
+     {{ k }}= {{ v }}
+{% endfor %}
+{% endif %}
+
+

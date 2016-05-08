@@ -79,7 +79,7 @@ Example Playbook
       vars:
         openbazaar_username: myuser
         openbazaar_password: myp@ssw0rD
-	openbazaar_additional_flags: ""
+        openbazaar_additional_flags: ""
       roles:
          - tyler-smith.openbazaar
 ```

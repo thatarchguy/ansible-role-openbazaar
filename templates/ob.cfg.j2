@@ -10,7 +10,16 @@ PASSWORD = {{ openbazaar_password }}
 [MAINNET_SEEDS]
 
 {% for seed in openbazaar_mainnet_seeds %}
-     {{ seed }}
+{{ seed }}
+{% endfor %}
+{% endif %}
+
+
+{% if openbazaar_testnet_seeds %}
+[TESTNET_SEEDS]
+
+{% for seed in openbazaar_testnet_seeds %}
+{{ seed }}
 {% endfor %}
 {% endif %}
 

@@ -21,3 +21,8 @@ openbazaar_mainnet_seeds:
 
 openbazaar_testnet_seeds:
   - "testnet_seed1 = seed.openbazaar.org:8080,5b44be5c18ced1bc9400fe5e79c8ab90204f06bebacc04dd9c70a95eaca6e117"
+
+openbazaar_libbitcoin_servers:
+  - "mainnet_server1 = tcp://libbitcoin1.openbazaar.org:9091"
+  - "mainnet_server3 = tcp://libbitcoin3.openbazaar.org:9091"
+  - "mainnet_server5 = tcp://obelisk.airbitz.co:9091"

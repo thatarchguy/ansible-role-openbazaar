@@ -24,3 +24,10 @@ PASSWORD = {{ openbazaar_password }}
 {% endif %}
 
 
+{% if openbazaar_libbitcoin_servers %}
+[LIBBITCOIN_SERVERS]
+
+{% for server in openbazaar_libbitcoin_servers %}
+{{ server }}
+{% endfor %}
+{% endif %}

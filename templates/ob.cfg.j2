@@ -9,7 +9,7 @@ PASSWORD = {{ openbazaar_password }}
 {% if openbazaar_mainnet_seeds %}
 [MAINNET_SEEDS]
 
-{% for k,v in item.seed.iteritems() %}
+{% for k,v in openbazaar_mainnet_seeds.iteritems() %}
      {{ k }}= {{ v }}
 {% endfor %}
 {% endif %}

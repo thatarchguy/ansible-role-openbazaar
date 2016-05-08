@@ -31,3 +31,12 @@ PASSWORD = {{ openbazaar_password }}
 {{ server }}
 {% endfor %}
 {% endif %}
+
+
+{% if openbazaar_libbitcoin_servers %}
+[LIBBITCOIN_SERVERS_TESTNET]
+
+{% for server in openbazaar_libbitcoin_servers_testnet %}
+{{ server }}
+{% endfor %}
+{% endif %}

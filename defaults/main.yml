@@ -26,3 +26,7 @@ openbazaar_libbitcoin_servers:
   - "mainnet_server1 = tcp://libbitcoin1.openbazaar.org:9091"
   - "mainnet_server3 = tcp://libbitcoin3.openbazaar.org:9091"
   - "mainnet_server5 = tcp://obelisk.airbitz.co:9091"
+
+openbazaar_libbitcoin_servers_testnet:
+  - "testnet_server2 = tcp://libbitcoin2.openbazaar.org:9091,baihZB[vT(dcVCwkhYLAzah<t2gJ>{3@k?+>T&^3"
+  - "testnet_server4 = tcp://libbitcoin4.openbazaar.org:9091,<Z&{.=LJSPySefIKgCu99w.L%b^6VvuVp0+pbnOM"

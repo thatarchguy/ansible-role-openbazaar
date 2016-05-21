@@ -1,5 +1,4 @@
 ---
-- include_vars: server.yml
 
 - name: Allow REST through UFW
   ufw: proto=tcp port={{ openbazaar_rest_port }} rule=allow

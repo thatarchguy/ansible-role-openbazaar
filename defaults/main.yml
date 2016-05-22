@@ -17,6 +17,11 @@ openbazaar_allowed_ip: 127.0.0.1
 openbazaar_username: username
 openbazaar_password: password
 
+openbazaar_ssl_enabled: false
+openbazaar_ssl_directory: /etc/openbazaar/
+openbazaar_ssl_cert: "{{ openbazaar_ssl_directory }}/server.crt"
+openbazaar_ssl_key: "{{ openbazaar_ssl_directory }}/server.key"
+
 openbazaar_additional_flags: -t
 
 openbazaar_seed: false

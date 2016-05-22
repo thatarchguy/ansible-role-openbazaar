@@ -1,0 +1,28 @@
+---
+  - name: create directory for ssl
+    file: path={{ openbazaar_ssl_directory }} state=directory mode=0755
+
+  - name: ensure openssl is installed
+    apt: name=openssl state=present
+
+  - name: generate SSL certs and keys
+    command: "{{ item.command }}"
+    args:
+      chdir: "{{ openbazaar_ssl_directory }}"
+      creates: "{{ openbazaar_ssl_directory }}/{{ item.filename }}"
+    with_items:
+      -
+        command: openssl genrsa -out rootCA.key 4096
+        filename: rootCA.crt
+      -
+        command: openssl req -x509 -new -nodes -key rootCA.key -days 1024 -out rootCA.crt -subj "/C=DE/ST=Germany/L=Walldorf/O=SAP SE/OU=Tools/CN=rootCA"
+        filename: rootCA.crt
+      -
+        command: openssl genrsa -out server.key 4096
+        filename: server.key
+      -
+        command: openssl req -new -key server.key -out server.csr -subj "/C=DE/ST=Germany/L=Walldorf/O=SAP SE/OU=Tools/CN=localhost"
+        filename: server.csr
+      -
+        command: openssl x509 -req -in server.csr -CA rootCA.crt -CAkey rootCA.key -CAcreateserial -out server.crt
+        filename: server.crt

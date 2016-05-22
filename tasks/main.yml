@@ -70,3 +70,7 @@
 - name: Include Seed tasks
   include: tasks/seed.yml
   when: openbazaar_seed == true
+
+- name: Include SSL tasks
+  include: tasks/ssl.yml
+  when: openbazaar_ssl_enabled == true

@@ -5,6 +5,11 @@
 USERNAME = {{ openbazaar_username }}
 PASSWORD = {{ openbazaar_password }}
 
+{% if openbazaar_ssl_enabled %}
+SSL = True
+SSL_CERT = {{ openbazaar_ssl_cert }}
+SSL_KEY = {{ openbazaar_ssl_key }}
+{% endif %}
 
 {% if openbazaar_mainnet_seeds %}
 [MAINNET_SEEDS]

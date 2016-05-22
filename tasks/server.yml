@@ -14,6 +14,7 @@
     owner={{ openbazaar_user }}
     group={{ openbazaar_group }}
     mode=0644
+    force=yes
   notify:
     - restart server
 

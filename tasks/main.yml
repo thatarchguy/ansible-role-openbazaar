@@ -52,6 +52,7 @@
   file:
     path={{ openbazaar_user_home_directory }}/openbazaar
     state=directory
+    recurse=true
     owner={{ openbazaar_user }}
     group={{ openbazaar_group }}
 

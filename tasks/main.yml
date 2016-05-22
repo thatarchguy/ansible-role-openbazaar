@@ -24,11 +24,16 @@
     system=yes
 
 # Get the source and install app requirements
+- name: check openbazaar downloaded
+  stat: path={{ openbazaar_user_home_directory }}/openbazaar
+  register: openbazaar_download
+
 - name: Download OpenBazaar
   git:
     repo={{ openbazaar_git_url }}
     dest={{ openbazaar_user_home_directory }}/openbazaar
     version={{ openbazaar_git_version }}
+  when: openbazaar_download.stat.exists == False
 
 - name: Install Requirements
   pip:

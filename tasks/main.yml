@@ -3,9 +3,6 @@
 - name: Install required system packages
   apt: pkg={{ item  }} state=installed update-cache=yes
   with_items:
-    - python-dev
-    - python-virtualenv
-    - python-pip
     - build-essential
     - git-core
     - sqlite3

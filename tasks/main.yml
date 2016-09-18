@@ -5,6 +5,7 @@
   with_items:
     - python-dev
     - python-virtualenv
+    - python-pip
     - build-essential
     - git-core
     - sqlite3

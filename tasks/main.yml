@@ -8,6 +8,9 @@
     - sqlite3
     - libffi-dev
     - libssl-dev
+    - python-dev
+    - python-virtualenv
+    - python-pip
 
 # Group and user
 - name: Create the service group

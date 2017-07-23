@@ -42,14 +42,6 @@
     virtualenv={{ openbazaar_user_home_directory }}/openbazaar/venv
     state=present
 
-# TODO: Figure out why this is required
-- name: Install html5lib
-  pip:
-    name=html5lib
-    version=0.999
-    state=present
-    virtualenv={{ openbazaar_user_home_directory }}/openbazaar/venv
-
 - name: Set git directory ownership
   file:
     path={{ openbazaar_user_home_directory }}/openbazaar

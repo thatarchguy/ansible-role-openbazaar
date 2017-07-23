@@ -1,0 +1,21 @@
+[Unit]
+Description=Openbazaar
+After=network.target
+
+[Service]
+Type=simple
+User={{ openbazaar_user }}
+Group={{ openbazaar_group }}
+ExecStart={{ openbazaar_user_home_directory }}/openbazaar/venv/bin/python \
+    {{ openbazaar_user_home_directory }}/openbazaar/openbazaard.py start \
+    -p {{ openbazaar_dht_port }} \
+    -r {{ openbazaar_rest_port }} \
+    -w {{ openbazaar_websocket_port }} \
+    -b {{ openbazaar_heartbeat_port }} \
+    -a {{ openbazaar_allowed_ip }} \
+    {{ openbazaar_additional_flags }}
+WorkingDirectory=/home/openbazaar
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target

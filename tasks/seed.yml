@@ -31,8 +31,23 @@
     owner={{ openbazaar_user }}
     group={{ openbazaar_group }}
     mode=0644
-  notify:
-    - restart seed
 
-- name: Start Seed Server
-  service: name=openbazaarseedd state=started
+- name: Start Seed Server - Upstart
+  service: name=openbazaard state=started
+  when: ansible_distribution == "Ubuntu" and ansible_lsb.major_release|int <= 14.04
+
+- name: Install systemd script
+  template:
+    src=server/openbazaar_systemd.service.j2
+    dest=/etc/systemd/system/openbazaarseedd.service
+    owner={{ openbazaar_user }}
+    group={{ openbazaar_group }}
+    mode=0644
+  when: ansible_distribution == "Ubuntu" and ansible_lsb.major_release|int > 14.04
+
+- name: Start seed Server - Systemd
+  systemd:
+    state: restarted
+    daemon_reload: yes
+    name: openbazaarseedd
+  when: ansible_distribution == "Ubuntu" and ansible_lsb.major_release|int > 14.04

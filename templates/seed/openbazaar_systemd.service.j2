@@ -1,0 +1,18 @@
+[Unit]
+Description=Openbazaar Seed
+After=network.target
+
+[Service]
+Type=simple
+User={{ openbazaar_user }}
+Group={{ openbazaar_group }}
+ExecStart={{ openbazaar_user_home_directory }}/openbazaar/venv/bin/python \
+    {{ openbazaar_user_home_directory }}/openbazaar/httpseed.py start \
+    -p {{ openbazaar_seed_http_port }} \
+    {{ openbazaar_additional_flags }}
+WorkingDirectory=/home/openbazaar
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
+
